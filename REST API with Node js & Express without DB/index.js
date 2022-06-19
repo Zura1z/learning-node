@@ -5,9 +5,9 @@ const app = express();
 
 app.use(express.json())
 var genres = [
-    {   id:1,name:'Genres1' },
-    {   id:2,name:'Genres2'},
-    {   id:3,name:'Genres3'},
+    {   id:1,name:'Action' },
+    {   id:2,name:'Comedy'},
+    {   id:3,name:'Drama'},
 ];
 
 app.get('/',(req,res)=>{
@@ -40,7 +40,6 @@ app.post('/api/genres/',(req,res)=>{
 app.put('/api/genres/:id',(req,res)=>{
     Genres = genres.find(c => c.id === parseInt(req.params.id)) ;
     if(!Genres) return res.status(404).send("The genres with given id was not found");
-    else console.log("No error");
     
 
     const { error } = validateGenres(req.body);
