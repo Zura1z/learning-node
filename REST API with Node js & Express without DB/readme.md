@@ -1,5 +1,5 @@
 # How to build RESTApi using Node and Express
-<p><b> Note: In this code I am just an array and not databse to avoid complexities </b>
+<p><b> Note: In this code I am just an array and not database to avoid complexities </b>
 <br> If you are new to node and APIs like me, just learn from one of the best programmers on YouTube: <b>"Programming with Mosh"</b></p>
 Here are the links I have used to learn :
 
