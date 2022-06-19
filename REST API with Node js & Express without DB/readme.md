@@ -27,6 +27,8 @@ Learned:
 
 Used Modules:
 1. Joi for making error handling easier
+2. Event 
+3. Express Library
 
 Used Apps:
 1. Postman Chrome Extension to send HTTP Requests  
