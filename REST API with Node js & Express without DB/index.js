@@ -5,9 +5,9 @@ const app = express();
 
 app.use(express.json())
 var genres = [
-    {   id:1,name:'genres1' },
-    {   id:2,name:'genres2'},
-    {   id:3,name:'genres3'},
+    {   id:1,name:'Genres1' },
+    {   id:2,name:'Genres2'},
+    {   id:3,name:'Genres3'},
 ];
 
 app.get('/',(req,res)=>{
@@ -17,33 +17,33 @@ app.get('/api/genres',(req,res)=>{
     res.send(genres);    
 })
 app.get('/api/genres/:id',(req,res)=>{
-    genres = genres.find(c => c.id === parseInt(req.params.id)) ;
-    if(!genres) return res.status(404).send("The genres with given id was not found");
-    res.send(genres);
+    Genres = genres.find(c => c.id === parseInt(req.params.id)) ;
+    if(!Genres) return res.status(404).send("The genres with given id was not found");
+    res.send(Genres);
 })
 app.post('/api/genres/',(req,res)=>{
-    const { error } = validategenres(req.body);
+    const { error } = validateGenres(req.body);
     if(error){
         // 400 => bad request
         return res.status(400).send(result.error.details[0].message);
         return;
     }
 
-    const genres ={
+    const Genres ={
         id: genres.length + 1,
         name: req.body.name
     }
-    genres.push(genres);
-    res.send(genres); 
+    genres.push(Genres);
+    res.send(Genres); 
 })
 
 app.put('/api/genres/:id',(req,res)=>{
-    genres = genres.find(c => c.id === parseInt(req.params.id)) ;
-    if(!genres) return res.status(404).send("The genres with given id was not found");
+    Genres = genres.find(c => c.id === parseInt(req.params.id)) ;
+    if(!Genres) return res.status(404).send("The genres with given id was not found");
     else console.log("No error");
     
 
-    const { error } = validategenres(req.body);
+    const { error } = validateGenres(req.body);
     if(error){
         // 400 => bad request
         console.log("Error here")
@@ -51,24 +51,24 @@ app.put('/api/genres/:id',(req,res)=>{
         return;
     }
 
-    genres.name = req.body.name;
-    res.send(genres);
+    Genres.name = req.body.name;
+    res.send(Genres);
     
 })
 app.delete('/api/genres/:id',(req,res)=>{
-    genres = genres.find(c => c.id === parseInt(req.params.id)) ;
-    if(!genres) {
+    Genres = genres.find(c => c.id === parseInt(req.params.id)) ;
+    if(!Genres) {
         return res.status(404).send("The genres with given id was not found");
     }
-    const index = genres.indexOf(genres);
+    const index = genres.indexOf(Genres);
     genres.splice(index,1);
-    res.send(genres);
+    res.send(Genres);
 })
-function validategenres(genres){
+function validateGenres(Genres){
     const schema = Joi.object({
         name: Joi.string().min(3).required()
     });
-    return result =  schema.validate(genres );
+    return result =  schema.validate(Genres );
  
 }
 
